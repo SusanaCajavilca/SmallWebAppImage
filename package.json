@@ -1,0 +1,17 @@
+{
+  "name": "cloudinary-mongodb-image",
+  "version": "1.0.0",
+  "description": "Small web application to upload images to Cloudinary and store image URLs in MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install --prefix backend && npm install --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "start": "node backend/bin/www"
+  },
+  "engines": {
+  "node": "18.x"
+},
+  "keywords": [],
+  "author": "Susana",
+  "license": "ISC"
+}
