@@ -33,7 +33,7 @@ app.use('/api/images', imagesAPIRouter); // adding my router
 
 
 // Serve React frontend
-const frontendBuildPath = path.join(__dirname, "../frontend/build");
+const frontendBuildPath = path.join(__dirname, "..", "frontend", "build");
 app.use(express.static(frontendBuildPath));
 
 // Catch-all: send React for any non-API route
