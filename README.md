@@ -1,6 +1,6 @@
 # Small App to upload images - Node + MongoDB + Cloudinary
 
-Link live site: 
+Link live site: https://small-image-web-app.onrender.com/
 
 ## Steps
 
@@ -356,7 +356,7 @@ Open in a browser http://localhost:3000/  and verify that everything works
 
 34 - Test the app running npm start in frontend and nodemon in backend. Verify it works
 
-35 - Prepare the folder before pushing to GitHub. Delete the node_modules folder from each backend and frontend
+35 - Prepare the folder before pushing to GitHub. Delete the node_modules folder from each backend and frontend. And create  the build folder in frontend and move it to backend
 
 36 - In terminal, inside the root project folder enter to create a package.json:
 
@@ -365,9 +365,9 @@ Open in a browser http://localhost:3000/  and verify that everything works
 37 - Make sure that the root package.json has:
 
         "scripts": {
-            "install-all": "npm install --prefix backend && npm install --prefix frontend",
-            "build": "npm run build --prefix frontend",
-            "start": "node backend/bin/www"
+        "install-all": "npm install --prefix backend && npm install --prefix frontend",
+        "build": "npm install --prefix frontend && npm run build --prefix frontend && rm -rf backend/build && cp -r frontend/build backend/build",
+        "start": "node backend/bin/www"
         },
         "engines": {
         "node": "18.x"
@@ -376,6 +376,8 @@ Open in a browser http://localhost:3000/  and verify that everything works
 38 - Update the backend > app.js code, adding:
 
         // Serve React frontend
+
+        //app.use('/', indexRouter);  //comment this line
         const frontendBuildPath = path.join(__dirname, "../frontend/build");
         app.use(express.static(frontendBuildPath));
 
@@ -392,3 +394,6 @@ Open in a browser http://localhost:3000/  and verify that everything works
 40 - Push your files to a public Repo in GitHub, using GitHub Desktop
 
 41 - Deploy it using Render.
+
+    build command: npm install --prefix backend && npm run build
+    start command: npm start
